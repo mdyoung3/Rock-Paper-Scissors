@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Scroll testing</title>
+    <style>
+    #scroll{
+     height: 200px;
+        width:200px;
+        overflow:scroll;
+    }
+        ::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+    </style>
+</head>
+<html>
+<body>
+<div id="scroll">
+Way back in the day, you could customize scrollbars in IE (5.5) with non-standard CSS properties like scrollbar-base-color which you would use on the element that scrolls (like the <body>) and do totally rad things. IE dropped that.
+
+These days, customizing scrollbars is back, but it's WebKit this time. It's a bit better now, because the properties are vendor-prefixed (e.g. ::-webkit-scrollbar) and use the "Shadow DOM". This has been around for a couple of years. David Hyatt blogged it in early 2009 and put together an example page of just about every combination of scrollbar possibilities you could ever want.    
+</div> 
+    
+    <script>
+    var userChoice = prompt("Do you choose rock, paper or scissors?");
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+	computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+	computerChoice = "paper";
+} else {
+	computerChoice = "scissors";
+} console.log("Computer: " + computerChoice);
+
+compare(userChoice, computerChoice);
+
+function compare(choice1, choice2){
+    if(choice1 == choice2){
+     return "The result is a tie!";   
+    }else if(choice1 === "rock"){
+        if (choice2 === "scissors"){
+            return "rock wins";
+        } else {
+            return "paper wins";
+        }
+    }else if(choice1 === "paper"){
+        if(choice === "rock"){
+            return "paper wins";
+        } else {
+            return "scissors wins";
+        }
+    }else if(choice1 === "scissors"){
+        if(choice === "paper"){
+            return "scissors wins";
+        } else {
+            return "rock wins";
+        }
+    }
+}
+    </script>
+    
+</body>   
+</html>
+    
